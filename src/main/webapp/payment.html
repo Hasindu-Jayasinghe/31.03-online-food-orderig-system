@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EasyFood.lk</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet'
+          type='text/css'>
+    <!--Animation-->
+    <script src="js/wow.min.js"></script>
+    <link href="css/animate.css" rel='stylesheet' type='text/css'/>
+    <script>
+        new WOW().init();
+    </script>
+    <!-- <link rel="stylesheet" type="text/css" href="pay/bootstrap/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="pay/font-awesome/css/font-awesome.min.css"/>
+
+    <!-- <script type="text/javascript" src="pay/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="pay/bootstrap/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            color: Black;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            color: white;
+        }
+    </style>
+    <script src="js/simpleCart.min.js"></script>
+</head>
+<body>
+<!-- header-section-starts -->
+<div class="header">
+    <div class="container">
+        <div class="top-header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo7.png" class="img-responsive" alt=""/></a>
+            </div>
+            <div class="queries">
+                <p>Call us on!<span>0112-855-856 </span><label>(8AM to 11PM)</label></p>
+            </div>
+            <div class="header-right">
+                <div class="cart box_1">
+                    <a onclick="checkOut()">
+                        <h3><span id="simpleCart_ttl"> LKR 0.00 </span> (<span id="simpleCart_qty"> 0 </span>
+                            items)<img src="images/bag.png" alt=""></h3>
+                    </a>
+                    <p><a href="javascript:;" onclick="empytCart()" class="simpleCart_empty">Empty cart</a></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <div class="container">
+            <div class="top-menu">
+                <ul id="user-history">
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="login-section">
+                <ul id="userlog">
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<br>
+<!-- header-section-ends -->
+<!-- content-section-starts -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h3 class="text-center">Payment Details</h3>
+                        <img class="img-responsive cc-img"
+                             src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>CARD NUMBER</label>
+                                    <div class="input-group" style="z-index: -1;">
+                                        <input type="tel" class="form-control" placeholder="Valid Card Number"/>
+                                        <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label><span class="hidden-xs">EXPIRATION</span><span
+                                            class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input type="tel" class="form-control" placeholder="MM / YY"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label>CV CODE</label>
+                                    <input type="tel" class="form-control" placeholder="CVC"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>CARD OWNER</label>
+                                    <input type="text" class="form-control" placeholder="Card Owner Names"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-warning btn-lg btn-block"><a onclick="processPayment()">Process payment
+                            </a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cc-img {
+        margin: 0 auto;
+    }
+</style>
+
+
+<div class="clearfix"></div>
+<div class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-section-grids">
+            <div class="col-md-3 contact-section-grid">
+                <h4>Site Links</h4>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">About Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Contact Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 contact-section-grid">
+                <h4>Site Links</h4>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">About Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Contact Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 contact-section-grid">
+                <h4>Follow Us On...</h4>
+                <ul>
+                    <li><i class="fb"></i></li>
+                    <li class="data"><a href="#"> Facebook</a></li>
+                </ul>
+                <ul>
+                    <li><i class="tw"></i></li>
+                    <li class="data"><a href="#">Twitter</a></li>
+                </ul>
+                <ul>
+                    <li><i class="in"></i></li>
+                    <li class="data"><a href="#"> Linkedin</a></li>
+                </ul>
+                <ul>
+                    <li><i class="gp"></i></li>
+                    <li class="data"><a href="#">Google Plus</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 contact-section-grid nth-grid">
+                <h4>Subscribe Newsletter</h4>
+                <p>To get latest updates and food deals every week</p>
+                <input type="text" class="text" value="" onfocus="this.value = '';"
+                       onblur="if (this.value == '') {this.value = '';}">
+                <input type="submit" value="submit">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h1 style="text-align: center">Thank You</h1>
+            <div class="alert alert-success">
+                <a style="text-align: center; font-size: 25px">Your order has placed Successfully.</a><p style="text-align: center; font-size: 20px;"> Please wait for you
+                Order.</p>
+            </div>
+            <a onclick="placeAnother()" style="margin-left: 30%" class="btn btn-primary">Place Another Order</a>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>
+
+
+
+<div id="logout-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="margin-top: 2%; margin-bottom: 2%; text-align: center;font-size: 18px ">Warning</h2>
+        </div>
+        <div class="modal-body">
+            <h2 style="text-align: center; margin-top: 2%;font-size: 20px">Do you want to logout?</h2>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-success" style="margin-top: 2%; margin-bottom: 2%" onclick="logout()">Yes</a>
+            <a class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%"
+               onclick="document.getElementById('logout-modal').style.display = 'none'">No</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- content-section-ends -->
+<!-- footer-section-starts -->
+<div class="footer">
+    <div class="container">
+        <p class="wow fadeInLeft" data-wow-delay="0.4s">&copy; 2019 All rights Reserved | by &nbsp;<a
+                href="http://w3layouts.com" target="target_blank">EasyFood.lk</a></p>
+    </div>
+</div>
+<script src="js/cookie.js"></script>
+<!-- footer-section-ends -->
+<script type="text/javascript">
+    function empytCart() {
+        ids = [];
+        totalPrice = 0;
+        count = 0;
+
+        $('#simpleCart_qty').text(count);
+        $('#simpleCart_ttl').text("LKR "+totalPrice);
+        eraseCookie('cart');
+        eraseCookie('count');
+        eraseCookie('totalCost');
+    }
+    $(document).ready(function () {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+
+    var modal = document.getElementById('myModal');
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    function openModal() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+
+    function processPayment() {
+
+        var order = getCookie("order");
+        console.log(order);
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/user/add-order';
+
+        Http.onreadystatechange = (e) =>{
+            if (Http.readyState === 4 && Http.status === 200) {
+                    console.log("Success")
+                    openModal();
+
+            } else {
+                console.log("Something went wrong")
+            }
+        }
+
+        Http.open("POST", url);
+        Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        Http.send(getCookie("order"));
+    }
+
+    function placeAnother() {
+        eraseCookie("totalCost");
+        eraseCookie("restaurantId");
+        eraseCookie("cart");
+        eraseCookie("isFromOrder");
+        eraseCookie("lat");
+        eraseCookie("lng");
+
+        location.href = 'index.html';
+    }
+
+    $(document).ready(function () {
+        var log = getCookie("logged");
+        if (log === 'hasLogged') {
+            $('#userlog').append("<li><a onclick='display_logout()' style='cursor: pointer;'>Logout</a></li>" +
+                "                    |\n" +
+                "                    <li><a href=\"aboutus.html\">About Us</a></li>");
+
+            $('#user-history').append("                    |" +
+                "                    <li><a href=\"user.html\">View History</a></li>\n" +
+                "                    |\n" +
+                "                    <li><a href=\"contact.html\">contact</a></li>")
+        }else {
+            $('#userlog').append("<li><a href=\"login.html\">Login</a></li>\n" +
+                "                    |\n" +
+                "                    <li><a href=\"register.html\">Register</a></li>" +
+                "                    |\n" +
+                "                    <li><a href=\"aboutus.html\">About Us</a></li>")
+            $('#user-history').append("                    |" +
+                "                    <li><a href=\"contact.html\">Contact</a></li>\n")
+        }
+
+        var cost = getCookie("totalCost");
+        var count = getCookie("count");
+
+
+        if (cost === null) {
+            $('#simpleCart_qty').text(0);
+            $('#simpleCart_ttl').text("LKR 0.00");
+        }else {
+            $('#simpleCart_qty').text(count);
+            $('#simpleCart_ttl').text("LKR " + cost);
+        }
+
+
+    });
+
+    function display_logout(){
+        document.getElementById('logout-modal').style.display = 'block';
+    }
+
+
+    function logout() {
+        eraseCookie('logged');
+        eraseCookie('user');
+        location.href = 'index.html'
+    }
+</script>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>

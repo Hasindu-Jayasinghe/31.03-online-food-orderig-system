@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food_Template Bootstrap Responsive Website Template | Contact :: w3layouts</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet'
+          type='text/css'>
+    <!--Animation-->
+    <script src="js/wow.min.js"></script>
+    <link href="css/animate.css" rel='stylesheet' type='text/css'/>
+    <script>
+        new WOW().init();
+    </script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            color: Black;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            color: white;
+        }
+    </style>
+    <script src="js/simpleCart.min.js"></script>
+</head>
+<body>
+<!-- header-section-starts -->
+<div class="header">
+    <div class="container">
+        <div class="top-header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo7.png" class="img-responsive" alt=""/></a>
+            </div>
+            <div class="queries">
+                <p>Call us on!<span>0112-855-856 </span><label>(8AM to 11PM)</label></p>
+            </div>
+            <div class="header-right">
+                <div class="cart box_1">
+                   <!-- <a href="checkout.html">
+                        <h3><span class="simpleCart_total"> LKR 0.00 </span> (<span id="simpleCart_quantity"
+                                                                                    class="simpleCart_quantity"> 0 </span>
+                            items)<img src="images/bag.png" alt=""></h3>
+                    </a>-->
+                    <!--<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>-->
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <div class="container">
+            <div class="top-menu">
+                <ul id="user-history">
+                    <li><a href="index.html">Home</a></li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="login-section">
+                <ul id="userlog">
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- header-section-ends -->
+    <div class="contact-section-page">
+        <div class="contact-head">
+            <div class="container">
+                <h3>Contact</h3>
+                <p>Home/Contact</p>
+            </div>
+        </div>
+        <div class="contact_top">
+            <div class="container">
+                <div class="col-md-6 contact_left wow fadeInRight" data-wow-delay="0.4s">
+                    <h4>Contact Form</h4>
+                    <p>If you have any question feel free to contact us. We are always here to help you. </p>
+                    <!--<form>-->
+                    <div class="form_details">
+                        <input id="name" type="text" class="text" value="Name" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Name';}">
+                        <input id="email" type="text" class="text" value="Email Address" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Email Address';}">
+                        <input id="subject" type="text" class="text" value="Subject" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Subject';}">
+                        <textarea id="message" value="Message" onfocus="this.value = '';"
+                                  onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                        <div class="clearfix"></div>
+                        <div class="sub-button wow swing animated" data-wow-delay="0.4s">
+                            <input name="submit" type="submit" value="Send message" onclick="addComment()">
+                        </div>
+                    </div>
+                    <!--</form>-->
+                </div>
+                <div class="col-md-6 company-right wow fadeInLeft" data-wow-delay="0.4s">
+                    <div id="contact-map">
+                        <iframe width="600" height="450" frameborder="0" style="border:0"
+                                src="https://www.google.com/maps/embed/v1/search?q=Homagama%2C%20Sri%20Lanka&key=AIzaSyB6O_UCvF7h2_DPKBMId7LrMPKir9kzKIc" allowfullscreen></iframe>
+                        <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1578265.0941403757!2d-98.9828708842255!3d39.41170802696131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1407515822047"></iframe>-->
+                    </div>
+
+                    <div class="company-right">
+                        <div class="company_ad">
+                            <h3>Contact Info</h3>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit velit justo.</span>
+                            <address>
+                                <p>email:<a href="mailto:info@example.com">easyfood@gmail.com</a></p>
+                                <p>phone: 0112-855-856</p>
+                                <p>506/b, 2nd Lane</p>
+                                <p>Maharagama, Kottawa</p>
+
+                            </address>
+                        </div>
+                    </div>
+                    <div class="follow-us">
+                        <h3>follow us on</h3>
+                        <a href="#"><i class="facebook"></i></a>
+                        <a href="#"><i class="twitter"></i></a>
+                        <a href="#"><i class="google-pluse"></i></a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="logout-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 style="margin-top: 2%; margin-bottom: 2%; text-align: center;font-size: 18px ">Warning</h2>
+            </div>
+            <div class="modal-body">
+                <h2 style="text-align: center; margin-top: 2%; font-size: 20px">Do you want to logout?</h2>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-success" style="margin-top: 2%; margin-bottom: 2%" onclick="logout()">Yes</a>
+                <a class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%"
+                   onclick="document.getElementById('logout-modal').style.display = 'none'">No</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- footer-section-starts -->
+    <div class="footer">
+        <div class="container">
+            <p class="wow fadeInLeft" data-wow-delay="0.4s">&copy; 2019 All rights Reserved | by &nbsp;<a
+                    href="http://w3layouts.com" target="target_blank">EasyFood.lk</a></p>
+        </div>
+    </div>
+    <script src="js/cookie.js"></script>
+    <!-- footer-section-ends -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+            var defaults = {
+                  containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+             };
+            */
+
+            $().UItoTop({easingType: 'easeOutQuart'});
+
+        });
+
+        function addComment() {
+
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var subject = $('#subject').val();
+            var message = $('#message').val();
+
+
+            const Http = new XMLHttpRequest();
+            const url = 'http://localhost:8080/api/v1/contacts';
+
+            Http.onreadystatechange = (e) =>
+            {
+                if (Http.readyState === 4 && Http.status === 200) {
+                    console.log(Http.responseText);
+                    if (Http.responseText === 'true') {
+                        location.href = 'login.html'
+                    } else {
+                        alert("Something went wrong!.");
+                    }
+                }
+            }
+            ;
+
+            Http.open("POST", url);
+            Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            Http.send(JSON.stringify(
+                {
+                    "name": name,
+                    "email": email,
+                    "subject": subject,
+                    "message": message
+                }));
+        }
+
+        $(document).ready(function () {
+            var log = getCookie("logged");
+            if (log === 'hasLogged') {
+                $('#userlog').append("<li><a onclick='display_logout()' style='cursor: pointer;'>Logout</a></li>" +
+                    "                    |\n" +
+                    "                    <li><a href=\"aboutus.html\">About Us</a></li>");
+
+                $('#user-history').append("                    |" +
+                    "                    <li><a href=\"user.html\">View History</a></li>\n" +
+                    "                    |\n" +
+                    "                    <li><a href=\"contact.html\">contact</a></li>")
+            }else {
+                $('#userlog').append("<li><a href=\"login.html\">Login</a></li>\n" +
+                    "                    |\n" +
+                    "                    <li><a href=\"register.html\">Register</a></li>" +
+                    "                    |\n" +
+                    "                    <li><a href=\"aboutus.html\">About Us</a></li>")
+                $('#user-history').append("                    |" +
+                    "                    <li><a href=\"contact.html\">Contact</a></li>\n")
+            }
+
+        });
+
+        function display_logout(){
+            document.getElementById('logout-modal').style.display = 'block';
+        }
+
+        function logout() {
+            eraseCookie('logged');
+            eraseCookie('user');
+            location.href = 'index.html'
+        }
+
+
+
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>

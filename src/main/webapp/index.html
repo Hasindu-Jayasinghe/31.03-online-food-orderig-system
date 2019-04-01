@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>EasyFood.lk</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet'
+          type='text/css'>
+    <!--Animation-->
+    <script src="js/wow.min.js"></script>
+    <link href="css/animate.css" rel='stylesheet' type='text/css'/>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/simpleCart.min.js"></script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            color: Black;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            color: white;
+        }
+
+        #map {
+            height: 600px;
+        }
+    </style>
+    <script src="js/cookie.js"></script>
+</head>
+<body>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 1200px">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Select your location.</h2>
+        </div>
+        <div class="modal-body">
+            <div id="map">
+            </div>
+            <!--<iframe style="width: 1000px; height: 500px"-->
+            <!--src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1578265.0941403757!2d-98.9828708842255!3d39.41170802696131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1407515822047"></iframe>-->
+        </div>
+        <div class="modal-footer">
+            <a onclick="onClickSubmit()" class="btn btn-primary">Continue</a>
+        </div>
+    </div>
+
+</div>
+<!-- header-section-starts -->
+<div class="header">
+    <div class="container">
+        <div class="top-header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo7.png" class="img-responsive" alt=""/></a>
+            </div>
+            <div class="queries">
+                <p> Call us on!<span>0112-855-856 </span><label>(8AM to 11PM)</label></p>
+            </div>
+            <div class="header-right">
+                <div class="cart box_1">
+                    <a onclick="checkOut()">
+                        <h3><span id="simpleCart_ttl"> LKR 0.00 </span> (<span id="simpleCart_qty"> 0 </span>
+                            items)<img src="images/bag.png" alt=""></h3>
+                    </a>
+                    <p><a href="javascript:;" onclick="empytCart()" class="simpleCart_empty">Empty cart</a></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <div class="container">
+            <div class="top-menu">
+                <ul id="user-history">
+                    <li class="active"><a href="#Home" class="scroll">Home</a></li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="login-section">
+                <ul id="userlog">
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+    <div class="banner wow fadeInUp" data-wow-delay="0.4s" id="Home">
+        <div class="container">
+            <div class="banner-info">
+                <div class="banner-info-head text-center wow fadeInLeft" data-wow-delay="0.5s">
+                    <!-- <h1>Network of over 5000 Restaurants</h1> -->
+                    <div class="line">
+                        <h2 style="color: black;"> To Order Online</h2>
+                    </div>
+                </div>
+                <div class="form-list wow fadeInRight" data-wow-delay="0.5s">
+                    <!--<form>-->
+                    <ul class="navmain" style="margin-left: 20%">
+                        <li><span style="color: black;">Enter your delivery address</span>
+                            <input id="autocomplete" type="text" class="text" onkeydown="openModal(event)"/>
+                        </li>
+                    </ul>
+                    <!--</form>-->
+                </div>
+                <!-- start search-->
+                <div class="main-search">
+
+                    <div class="close"><img src="images/cross.png"/></div>
+                </div>
+                <!--<div class="srch">
+                    <button style="position: absolute; margin-right: 30%" id="search-btn"
+                            onclick="openModal()"></button>
+                </div>-->
+
+
+                <script type="text/javascript">
+
+                    var modal = document.getElementById('myModal');
+
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks the button, open the modal
+                    function openModal(event) {
+                        if (event.code === 'Enter') {
+                            modal.style.display = "block";
+                        }
+                        // console.log(event)
+                        // modal.style.display = "block";
+                    }
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function () {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+                    $('.main-search').hide();
+                    /*      $('button').click(function () {
+                                  $('.main-search').show();
+                                  $('.main-search text').focus();
+                              }
+                          );*/
+                    $('.close').click(function () {
+                        $('.main-search').hide();
+                    });
+                </script>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header-section-ends -->
+<!-- content-section-starts -->
+<div class="content">
+    <div class="ordering-section" id="Order">
+        <div class="container">
+            <div class="ordering-section-head text-center wow bounceInRight" data-wow-delay="0.4s">
+                <h3>Ordering food was never so easy</h3>
+                <div class="dotted-line">
+                    <h4>Just 4 steps to follow </h4>
+                </div>
+            </div>
+            <div class="ordering-section-grids">
+                <div class="col-md-3 ordering-section-grid">
+                    <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"
+                    ">
+                    <i class="one"></i><br>
+                    <i class="one-icon"></i>
+                    <p>Choose <span>Your Restaurant</span></p>
+                    <label></label>
+                </div>
+            </div>
+            <div class="col-md-3 ordering-section-grid">
+                <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"
+                ">
+                <i class="two"></i><br>
+                <i class="two-icon"></i>
+                <p>Order <span>Your Cuisine</span></p>
+                <label></label>
+            </div>
+        </div>
+        <div class="col-md-3 ordering-section-grid">
+            <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"
+            ">
+            <i class="three"></i><br>
+            <i class="three-icon"></i>
+            <p>Pay <span> online / on delivery</span></p>
+            <label></label>
+        </div>
+    </div>
+    <div class="col-md-3 ordering-section-grid">
+        <div class="ordering-section-grid-process wow fadeInRight" data-wow-delay="0.4s"
+        ">
+        <i class="four"></i><br>
+        <i class="four-icon"></i>
+        <p>Enjoy <span>your food </span></p>
+    </div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+<div class="special-offers-section">
+    <div class="container">
+        <div class="special-offers-section-head text-center dotted-line">
+            <h4>Special Offers</h4>
+        </div>
+        <div class="special-offers-section-grids">
+            <div class="m_3"><span class="middle-dotted-line"> </span></div>
+            <div id="special-offer-message"></div>
+            <div class="container">
+                <ul id="special-offer-body">
+                </ul>
+                <script type="text/javascript">
+                    $(window).load(function () {
+
+                        $("#flexiselDemo3").flexisel({
+                            visibleItems: 3,
+                            animationSpeed: 1000,
+                            autoPlay: false,
+                            autoPlaySpeed: 3000,
+                            pauseOnHover: true,
+                            enableResponsiveBreakpoints: true,
+                            responsiveBreakpoints: {
+                                portrait: {
+                                    changePoint: 480,
+                                    visibleItems: 1
+                                },
+                                landscape: {
+                                    changePoint: 640,
+                                    visibleItems: 2
+                                },
+                                tablet: {
+                                    changePoint: 768,
+                                    visibleItems: 3
+                                }
+                            }
+                        });
+
+                    });
+                </script>
+                <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popular-restaurents" id="Popular-Restaurants">
+    <div class="container">
+        <div class="col-md-4 top-restaurents">
+            <div class="top-restaurent-head">
+                <h3>Top Restaurants</h3>
+            </div>
+            <div class="top-restaurent-grids">
+                <div class="top-restaurent-logos" id="top-restaurants-div">
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 top-cuisines">
+            <div class="top-cuisine-head">
+                <h3>Top Cuisines</h3>
+            </div>
+            <div class="top-cuisine-grids" id="top-cuisines-div">
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="service-section">
+    <div class="service-section-top-row">
+        <div class="container">
+            <div class="service-section-top-row-grids wow bounceInLeft" data-wow-delay="0.4s">
+                <div class="col-md-3 service-section-top-row-grid1">
+                    <h3>Enjoy Exclusive Food Order any of these</h3>
+                </div>
+                <div class="col-md-2 service-section-top-row-grid2">
+                    <ul>
+                        <li><i class="arrow"></i></li>
+                        <li class="lists">Party Orders</li>
+                    </ul>
+                    <ul>
+                        <li><i class="arrow"></i></li>
+                        <li class="lists">Home Made Food</li>
+                    </ul>
+                    <ul>
+                        <li><i class="arrow"></i></li>
+                        <li class="lists"> Diet Food</li>
+                    </ul>
+                </div>
+                <div class="col-md-5 service-section-top-row-grid3">
+                    <img src="images/lunch.png" class="img-responsive" alt=""/>
+                </div>
+                <div class="col-md-2 service-section-top-row-grid4 wow swing animated" data-wow-delay="0.4s">
+                    <a href="order.html"><input type="submit" value="Order Now"></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="service-section-bottom-row">
+        <div class="container">
+            <div class="col-md-4 service-section-bottom-grid wow bounceIn " data-wow-delay="0.2s">
+                <div class="icon">
+                    <img src="images/icon1.jpg" class="img-responsive" alt=""/>
+                </div>
+                <div class="icon-data">
+                    <h4>100% Service Guarantee</h4>
+                    <p>Lorem ipsum dolor sit amet, consect-etuer adipiscing elit. </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-4 service-section-bottom-grid wow bounceIn " data-wow-delay="0.2s">
+                <div class="icon">
+                    <img src="images/icon2.jpg" class="img-responsive" alt=""/>
+                </div>
+                <div class="icon-data">
+                    <h4>Fully Secure Payment</h4>
+                    <p>Lorem ipsum dolor sit amet, consect-etuer adipiscing elit. </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-4 service-section-bottom-grid wow bounceIn " data-wow-delay="0.2s">
+                <div class="icon">
+                    <img src="images/icon3.jpg" class="img-responsive" alt=""/>
+                </div>
+                <div class="icon-data">
+                    <h4>Track Your Order</h4>
+                    <p>Lorem ipsum dolor sit amet, consect-etuer adipiscing elit. </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-section-grids">
+            <div class="col-md-3 contact-section-grid wow fadeInLeft" data-wow-delay="0.4s">
+                <h4>Site Links</h4>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">About Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Contact Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 contact-section-grid wow fadeInLeft" data-wow-delay="0.4s">
+                <h4>Site Links</h4>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">About Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Contact Us</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <ul>
+                    <li><i class="point"></i></li>
+                    <li class="data"><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 contact-section-grid wow fadeInRight" data-wow-delay="0.4s">
+                <h4>Follow Us On...</h4>
+                <ul>
+                    <li><i class="fb"></i></li>
+                    <li class="data"><a href="#"> Facebook</a></li>
+                </ul>
+                <ul>
+                    <li><i class="tw"></i></li>
+                    <li class="data"><a href="#">Twitter</a></li>
+                </ul>
+                <ul>
+                    <li><i class="in"></i></li>
+                    <li class="data"><a href="#"> Linkedin</a></li>
+                </ul>
+                <ul>
+                    <li><i class="gp"></i></li>
+                    <li class="data"><a href="#">Google Plus</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 contact-section-grid nth-grid wow fadeInRight" data-wow-delay="0.4s">
+                <h4>Subscribe Newsletter</h4>
+                <p>To get latest updates and food deals every week</p>
+                <input type="text" class="text" value="" onfocus="this.value = '';"
+                       onblur="if (this.value == '') {this.value = '';}">
+                <input type="submit" value="submit">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- content-section-ends -->
+<!-- footer-section-starts -->
+<div class="footer">
+    <div class="container">
+        <p class="wow fadeInLeft" data-wow-delay="0.4s">&copy; 2019 All rights Reserved | by &nbsp;<a
+                href="http://w3layouts.com" target="target_blank">EasyFood.lk</a></p>
+    </div>
+</div>
+
+<div id="rate-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="margin-top: 2%; margin-bottom: 2%">Rate the restaurant</h2>
+        </div>
+        <div class="modal-body">
+            <div class="food-div">
+
+                <div class="input-category">
+                    <label>Rating:</label><br>
+                    <input id="rating" class="col-lg-12 input-field" max="5" min="0" type="text">
+                </div>
+
+                <div class="input-category">
+                    <label>Comments:</label><br>
+                    <textarea id="comment" class="col-lg-12 input-field" type="text"></textarea>
+                </div>
+                <div class="input-category" id="results">
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary" style="margin-top: 2%; margin-bottom: 2%" onclick="addRating()">Proceed</a>
+            <a class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%" onclick="onClose()">Close</a>
+        </div>
+    </div>
+
+</div>
+
+<div id="logout-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="margin-top: 2%; margin-bottom: 2%; text-align: center;font-size: 18px ">Warning</h2>
+        </div>
+        <div class="modal-body">
+            <h2 style="text-align: center; margin-top: 2%;font-size: 20px">Do you want to logout?</h2>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-success" style="margin-top: 2%; margin-bottom: 2%" onclick="logout()">Yes</a>
+            <a class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%"
+               onclick="document.getElementById('logout-modal').style.display = 'none'">No</a>
+        </div>
+    </div>
+
+</div>
+<!-- footer-section-ends -->
+<script type="text/javascript">
+    function empytCart() {
+        ids = [];
+        totalPrice = 0;
+        count = 0;
+
+        $('#simpleCart_qty').text(count);
+        $('#simpleCart_ttl').text("LKR " + totalPrice);
+        eraseCookie('cart');
+        eraseCookie('count');
+        eraseCookie('totalCost');
+    }
+
+    $(document).ready(
+        function () {
+            var log = getCookie("logged");
+
+            var cost = getCookie("totalCost");
+            var count = getCookie("count");
+
+            console.log("Cost" + cost)
+            if (cost === null) {
+                $('#simpleCart_qty').text(0);
+                $('#simpleCart_ttl').text("LKR 0.00");
+            } else {
+                $('#simpleCart_qty').text(count);
+                $('#simpleCart_ttl').text("LKR " + cost);
+            }
+
+
+        }
+    );
+
+    function checkOut() {
+        location.href = 'checkout.html';
+    }
+
+    $(document).ready(function () {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+
+    $(document).ready(
+        function () {
+            var log = getCookie("logged");
+            var cost = getCookie("totalCost");
+            var count = getCookie("count");
+
+            console.log("Cost" + cost)
+            if (cost === null) {
+                $('#simpleCart_qty').text(0);
+                $('#simpleCart_ttl').text("LKR 0.00");
+            } else {
+                $('#simpleCart_qty').text(count);
+                $('#simpleCart_ttl').text("LKR " + cost);
+            }
+
+        }
+    );
+
+
+    $(window).load(function () {
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/foods/special-offers';
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                var foods = JSON.parse(Http.responseText)
+                for (food in foods) {
+                    var offer = '-';
+                    var foodId = foods[food].foodId;
+                    if (foods[food].isSpecialOffer) {
+                        offer = 'on offer';
+                    }
+                    $('#special-offer-body').append(
+                        "<li>\n" +
+                        "<div class=\"offer\">\n" +
+                        "<div class=\"offer-image\">\n" +
+                        "<img style=\"width: 150px;height: 150px\" src=\"" + foods[food].image + "\"class=\"img-responsive\" alt=\"\"/>\n" +
+                        "</div>\n" +
+                        "<div class=\"offer-text\">\n" +
+                        "<h4>" + foods[food].foodName + "</h4>\n" +
+                        "<p>" + foods[food].description + "</p>\n" +
+                        "<input type=\"button\" class=\"disabled\" onclick='onGrab(" + foodId + "," + foods[food].price +"," + foods[food].restaurantDtoList.restaurantId + ")' value=\"Grab It\">\n" +
+                        "<span></span>\n" +
+                        "</div>\n" +
+                        "<div class=\"clearfix\"></div>\n" +
+                        "</div>\n" +
+                        "</li>"
+                    )
+
+                }
+
+            }
+
+        }
+    });
+
+    $(window).load(function () {
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/restaurants';
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                var restaurants = JSON.parse(Http.responseText)
+                for (rest in restaurants) {
+
+                    $('#top-restaurants-div').append(
+                        "<div  style='padding-bottom: 15px' class=\"res-img-1 wow bounceIn\" data-wow-delay=\"0.4s\" onclick='rateRestaurant(" +restaurants[rest].restaurantId +")' value=\"Grab It\">\n" +
+                        "<img title=\"" + restaurants[rest].restaurantName + "\" style='width: 150px;height: 150px' src=\"" + restaurants[rest].image + "\"class=\"img-responsive\" alt=\"\"/>\n" +
+                        "</div>"
+                    )
+
+                }
+            }
+
+        }
+    });
+
+    var ratingResturant = "";
+    function rateRestaurant(restaurantId){
+        console.log('open me')
+
+        ratingResturant = restaurantId;
+        document.getElementById('rate-modal').style.display = 'block';
+    }
+
+    function onClose(){
+        console.log('close me')
+        document.getElementById('rate-modal').style.display = 'none';
+    }
+    function addRating(){
+        var rating = $('#rating').val();
+        var comment = $('#comment').val();
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/ratings/restaurants/'+ratingResturant;
+
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                if (Http.responseText === 'true') {
+                    $('#rating-result-content').remove();
+                    $('#results').append(
+                        "<div class=\"alert alert-success\" id='rating-result-content' role=\"alert\">\n" +
+                        "Food Category Added Successfully\n" +
+                        "</div>"
+                    )
+                    document.getElementById("food-modal").style.display = 'none';
+                    console.log("success")
+                } else {
+                    $('#rating-result-content').remove();
+                    $('#results').append(
+                        "<div class=\"alert alert-danger\" id='rating-result-content' role=\"alert\">\n" +
+                        "Something Went Wrong!" +
+                        "</div>"
+                    )
+                    console.log("failed")
+                }
+            }
+        }
+
+        var userId = getCookie('user');
+        if(userId == null || userId == undefined){
+            userId = 'anonymous';
+        }
+        Http.open("POST", url);
+        Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        Http.send(JSON.stringify({
+            "userId": userId,
+            "rating": rating,
+            "comment": comment,
+            "restaurantId": ratingResturant,
+        }));
+    }
+
+
+    $(window).load(function () {
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/foods';
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                var foods = JSON.parse(Http.responseText);
+                for (food in foods) {
+
+                    $('#top-cuisines-div').append(
+                        "<div class=\"top-cuisine-grid wow bounceIn\" data-wow-delay=\"0.4s\">\n" +
+                        "<img style=\"height: 150px;width: 150px\" src=\"" + foods[food].image + "\"class=\"img-responsive\" alt=\"\"/>\n" +
+                        "<label title=\"" + foods[food].foodName + "\" style=\"width: 150px; white-space: nowrap;overflow: hidden;text-overflow:ellipsis;\">" + foods[food].foodName + "</label>\n" +
+                        "</div>"
+                    )
+
+                }
+            }
+
+        }
+    });
+
+    function initMap() {
+        var location = {lat: 6.927079, lng: 79.861244};
+        var map = new google.maps.Map(document.getElementById("modal-body"), {
+            zoom: 4,
+            center: location
+        });
+    }
+
+    var ids = [];
+    var resIds = [];
+    var totalPrice = 0.0;
+    var count = 0;
+
+    function onGrab(id, price ,restaurantId) {
+        console.log(id, '=========', price, '------------------',restaurantId, '------------------')
+        $('#special-offer-message').empty();
+
+        ids = $.parseJSON(getCookie('cart'));
+        resIds = $.parseJSON(getCookie('orderedRestaurants'));
+        var cartObj = {
+            foodId: id,
+            count: 1
+        };
+        if (ids == null || ids == undefined) {
+            ids = [];
+        }
+        if (resIds == null || resIds == undefined) {
+            resIds = [];
+        }
+        var existing = false;
+        for (var i = 0; i < ids.length; i++) {
+            if (ids[i].foodId == id) {
+                ids[i].count++;
+                existing = true;
+            }
+        }
+        if (!existing) {
+            ids.push(cartObj);
+        }
+        var resExisting = false;
+        for (var i = 0; i < resIds.length; i++) {
+            if (resIds[i].restaurantId == restaurantId) {
+                resExisting = true;
+                break;
+            }
+        }
+        if (!resExisting) {
+            resIds.push(restaurantId);
+        }
+        console.log(ids, 'selected ids');
+        console.log(resIds, 'selected res ids');
+        totalPrice = $.parseJSON(getCookie("totalCost"));
+        count = getCookie("count");
+        totalPrice += parseFloat(price);
+        count++;
+
+        if (totalPrice == null || totalPrice == undefined) {
+            totalPrice = 0;
+        } else {
+            totalPrice = parseFloat(totalPrice);
+        }
+
+        setCookie('cart', JSON.stringify(ids), 7);
+        setCookie('orderedRestaurants', JSON.stringify(resIds), 7);
+        setCookie('totalCost', totalPrice, 7);
+        setCookie('count', count, 7);
+        if (getCookie('logged') != 'hasLogged') {
+            $('#special-offer-message').append(
+                "<div class=\"alert alert-success\">\n" +
+                "<a style=\"text-align: center; font-size: 25px; text-decoration: none\">Successfully added to cart, Please login to proceed.</a>\n" +
+                "</div>"
+            )
+        } else {
+            $('#special-offer-message').append(
+                "<div class=\"alert alert-success\">\n" +
+                "<a style=\"text-align: center; font-size: 25px; text-decoration: none\">Successfully added to cart, Please give your location to proceed.</a>\n" +
+                "</div>"
+            )
+        }
+
+        if (totalPrice === null) {
+            $('#simpleCart_qty').text(0);
+            $('#simpleCart_ttl').text("LKR 0.00");
+        }else {
+            $('#simpleCart_qty').text(count);
+            $('#simpleCart_ttl').text("LKR " + totalPrice);
+        }
+
+
+    }
+</script>
+
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<script src="js/cookie.js"></script>
+<script>
+    var map;
+
+    var lat = 0.0;
+    var lng = 0.0;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 6.9271, lng: 79.8612},
+            zoom: 12,
+            mapTypeId: 'roadmap'
+        });
+
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(6.9271, 79.8612),
+            map: map,
+            animation: google.maps.Animation.DROP,
+            draggable: true,
+            icon: image
+        });
+
+        var input = document.getElementById("autocomplete");
+        var searchBox = new google.maps.places.SearchBox(input);
+
+        google.maps.event.addListener(searchBox, 'places_changed', function () {
+            var places = searchBox.getPlaces();
+
+            var bounds = new google.maps.LatLngBounds();
+            var i, place;
+
+            for (i = 0; place = places[i]; i++) {
+                bounds.extend(place.geometry.location);
+                marker.setPosition(place.geometry.location);
+                lat = place.geometry.location.lat().toFixed(4);
+                lng = place.geometry.location.lng().toFixed(4);
+            }
+
+            map.fitBounds(bounds);
+            map.setZoom(15);
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function (evt) {
+            lat = evt.latLng.lat().toFixed(4);
+            lng = evt.latLng.lng().toFixed(4);
+        });
+    }
+
+    $(window).load(function () {
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/restaurants';
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                var restaurants = JSON.parse(Http.responseText)
+                console.log(restaurants);
+                for (restaurant in restaurants) {
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(restaurants[restaurant].lat, restaurants[restaurant].lng),
+                        map: map
+                    });
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: restaurants[restaurant].restaurantName
+                    });
+
+                    marker.addListener('click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                }
+            }
+        }
+
+    });
+
+    function onClickSubmit() {
+        setCookie("lat", lat, 7);
+        setCookie("lng", lng, 7);
+
+        document.location.href = "restaurants.html"
+    }
+
+    $(document).ready(function () {
+        var log = getCookie("logged");
+        if (log === 'hasLogged') {
+            $('#userlog').append("<li><a onclick='display_logout()()' style='cursor: pointer;'>Logout</a></li>" +
+                "                    |\n" +
+                "                    <li><a href=\"aboutus.html\">About Us</a></li>");
+
+            $('#user-history').append("                    |" +
+                "                    <li><a href=\"user.html\">View History</a></li>\n" +
+                "                    |\n" +
+                "                    <li><a href=\"contact.html\">contact</a></li>")
+        } else {
+            $('#userlog').append("<li><a href=\"login.html\">Login</a></li>\n" +
+                "                    |\n" +
+                "                    <li><a href=\"register.html\">Register</a></li>" +
+                "                    |\n" +
+                "                    <li><a href=\"aboutus.html\">About Us</a></li>")
+            $('#user-history').append("                    |" +
+                "                    <li><a href=\"contact.html\">Contact</a></li>\n")
+        }
+
+    });
+
+    function display_logout() {
+        document.getElementById('logout-modal').style.display = 'block';
+    }
+
+    function logout() {
+        eraseCookie('logged');
+        eraseCookie('user');
+        location.href = 'index.html'
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6O_UCvF7h2_DPKBMId7LrMPKir9kzKIc&libraries=places&callback=initMap"
+        async defer></script>
+</body>
+</html>

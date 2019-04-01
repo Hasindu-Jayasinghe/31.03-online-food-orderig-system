@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food_Template Bootstrap Responsive Website Template | Contact :: w3layouts</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet'>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--Animation-->
+    <script src="js/wow.min.js"></script>
+    <link href="css/animate.css" rel='stylesheet' type='text/css'/>
+    <script>
+        new WOW().init();
+    </script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            color: Black;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            color: white;
+        }
+    </style>
+    <script src="js/simpleCart.min.js"></script>
+</head>
+<body>
+<!-- header-section-starts -->
+<div class="header">
+    <div class="container">
+        <div class="top-header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo7.png" class="img-responsive" alt=""/></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <div class="container">
+            <div class="top-menu">
+                <ul>
+                    <li><a href="admin.html">Manage Restaurants</a></li>
+                    |
+                    <li><a href="manage-orders.html">Manage Orders</a></li>
+                    |
+                    <li><a href="manage-foods.html">Manage Foods</a></li>
+                    |
+                  <!-- <li><a href="manage-foods.html">View Comments</a></li> -->
+                    <li><a href="view-comments.html">View Comments</a></li>
+                    |
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="login-section">
+                <ul id="userlog">
+                    <!--<li><a onclick='logout()'>Logout</a></li>-->
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="margin-top: 5%; margin-bottom: 5%">
+    <h2>View Comments</h2>
+    <p>User suggestions and complaints</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table>
+</div>
+
+<div id="locationModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Select Restaurant location.</h2>
+        </div>
+        <div class="modal-body">
+            <div id="map">
+            </div>
+            <!--<iframe style="width: 1000px; height: 500px"-->
+            <!--src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1578265.0941403757!2d-98.9828708842255!3d39.41170802696131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1407515822047"></iframe>-->
+        </div>
+        <div class="modal-footer">
+            <a onclick="closeLocationModal()" class="btn btn-primary">Continue</a>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div id="logout-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="margin-top: 2%; margin-bottom: 2%; text-align: center;font-size: 18px ">Warning</h2>
+        </div>
+        <div class="modal-body">
+            <h2 style="text-align: center; margin-top: 2%; font-size: 20px">Do you want to logout?</h2>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-success" style="margin-top: 2%; margin-bottom: 2%" onclick="logout()">Yes</a>
+            <a class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%"
+               onclick="document.getElementById('logout-modal').style.display = 'none'">No</a>
+        </div>
+    </div>
+
+</div>
+<!-- footer-section-starts -->
+<div class="footer">
+    <div class="container">
+        <p class="wow fadeInLeft" data-wow-delay="0.4s">&copy; 2019 All rights Reserved | by &nbsp;<a
+                href="http://w3layouts.com" target="target_blank">EasyFood.lk</a></p>
+    </div>
+</div>
+<script src="js/cookie.js"></script>
+<!-- footer-section-ends -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+</script>
+<script type="text/javascript">
+
+    $(window).load(function () {
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/user/get-comments';
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            if (Http.readyState === 4 && Http.status === 200) {
+                var comments = JSON.parse(Http.responseText)
+                console.log(comments);
+                for (comment in comments) {
+                    $('#table-body').append(
+                        "<tr>\n" +
+                        "<td>"+comments[comment].name+"</td>\n" +
+                        "<td>"+comments[comment].email+"</td>\n" +
+                        "<td>"+comments[comment].subject+"</td>\n" +
+                        "<td>"+comments[comment].message+"</td>\n" +
+                        "</tr>"
+                    )
+
+                }
+            }
+
+        }
+
+    });
+
+
+    $(document).ready(function () {
+        var log = getCookie("logged");
+        console.log("working")
+        if (log === 'hasLogged') {
+            $('#userlog').append("<li><a onclick='display_logout()'>Logout</a></li>");
+        }else {
+            location.href = 'index.html';
+        }
+    });
+
+    function display_logout(){
+        document.getElementById('logout-modal').style.display = 'block';
+    }
+
+    function logout() {
+        eraseCookie('logged');
+        eraseCookie('user');
+        location.href = 'index.html'
+    }
+
+</script>
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6O_UCvF7h2_DPKBMId7LrMPKir9kzKIc&libraries=places&callback=initMap"
+        async defer></script>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>EasyFood.lk</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--webfont-->
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700,700italic' rel='stylesheet'
+          type='text/css'>
+    <!--Animation-->
+    <script src="js/wow.min.js"></script>
+    <link href="css/animate.css" rel='stylesheet' type='text/css'/>
+    <!--<link href="css/rate.css" rel='stylesheet' type='text/css'/>-->
+    <!--<link rel="stylesheet" type="text/css" href="css/ratesubway.css">-->
+
+    <script>
+        new WOW().init();
+    </script>
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+            });
+        });
+    </script>
+    <script src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
+    <script src="js/tms-0.4.1.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.slider')._TMS({
+                show: 0,
+                pauseOnHover: false,
+                prevBu: '.prev',
+                nextBu: '.next',
+                playBu: false,
+                duration: 800,
+                preset: 'fade',
+                pagination: true,//'.pagination',true,'<ul></ul>'
+                pagNums: false,
+                slideshow: 8000,
+                numStatus: false,
+                banners: false,
+                waitBannerAnimation: false,
+                progressBar: false
+            })
+        });
+
+        /*$(window).load(
+            function () {
+                $('.carousel1').carouFredSel({
+                    auto: false, prev: '.prev', next: '.next', width: 960, items: {
+                        visible: {
+                            min: 1,
+                            max: 4
+                        },
+                        height: 'auto',
+                        width: 240,
+
+                    }, responsive: false,
+
+                    scroll: 1,
+
+                    mousewheel: false,
+
+                    swipe: {onMouse: false, onTouch: false}
+                });
+
+
+            });*/
+
+    </script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 30%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            color: Black;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+
+        .modal-footer {
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .rate {
+            position: relative;
+        }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 70px;
+            color: #ccc;
+        }
+
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+
+
+    </style>
+    <script src="js/jquery.easydropdown.js"></script>
+    <script src="js/simpleCart.min.js"></script>
+</head>
+<body>
+<!-- header-section-starts -->
+<div class="header">
+    <div class="container">
+        <div class="top-header">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo7.png" class="img-responsive" alt=""/></a>
+            </div>
+            <div class="queries">
+                <p> Call us on!<span>0112-855-856 </span><label>(8AM to 11PM)</label></p>
+            </div>
+            <div class="header-right">
+                <div class="cart box_1">
+                    <a onclick="checkOut()">
+                        <h3><span id="simpleCart_ttl"> LKR 0.00 </span> (<span id="simpleCart_qty"> 0 </span>
+                            items)<img src="images/bag.png" alt=""></h3>
+                    </a>
+                    <p><a href="javascript:;" onclick="empytCart()" class="simpleCart_empty">Empty cart</a></p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <div class="container">
+            <div class="top-menu">
+                <ul id="user-history">
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="login-section">
+                <ul id="userlog">
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- header-section-ends -->
+<div class="order-section-page">
+    <div class="ordering-form">
+        <div class="container">
+            <div class="order-form-head text-center wow bounceInLeft" data-wow-delay="0.4s">
+                <h3>Restaurant Order Form</h3>
+                <p>Ordering Food Was Never So Simple !!!!!!</p>
+            </div>
+            <div class="col-md-6 order-form-grids">
+
+                <div class="order-form-grid  wow fadeInLeft" data-wow-delay="0.4s">
+                    <h5>Order Summary</h5>
+                    <span>Type of Order</span>
+                    <div class="dropdown-button">
+                        <select id="typeofOrder" class="dropdown" tabindex="9" data-settings='{"wrapperClass":"flat"}'>
+                            <option>Pick up</option>
+                            <option>Delivery</option>
+                        </select>
+                    </div>
+                    <span>Restaurant</span><br>
+                    <input type="text" class="text" id="restaurant" disabled><br>
+                    <span>Time</span>
+                    <div class="dropdown-button">
+                        <select class="dropdown" tabindex="9" id="time" data-settings='{"wrapperClass":"flat"}'>
+                            <option>As Soon As Possible</option>
+                            <option>After 15 min</option>
+                            <option>After 30 min</option>
+                            <option>After 1 hour</option>
+                            <option>After 2 hours</option>
+                        </select>
+                    </div>
+                    <span>Pick Up Location</span><br>
+                    <input type="text" class="text" id="location" disabled><br>
+                    <span>Payment Type</span>
+                    <div class="dropdown-button">
+                        <select class="dropdown" tabindex="9" id="payment-type" data-settings='{"wrapperClass":"flat"}'>
+                            <option>Credit / Debit Card</option>
+                            <option>Cash</option>
+                        </select>
+                    </div>
+                    <div class="wow swing animated" data-wow-delay="0.4s">
+                        <input type="button" onclick="submitOrder()" value="order now">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ordering-image wow bounceIn" data-wow-delay="0.4s">
+                <img src="images/order.jpg" class="img-responsive" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div class="special-offers-section">
+        <div class="container">
+            <div class="special-offers-section-head text-center dotted-line">
+                <h4>Special Offers</h4>
+            </div>
+            <div class="special-offers-section-grids">
+                <div class="m_3"><span class="middle-dotted-line"> </span></div>
+                <div class="container">
+                    <ul id="flexiselDemo3">
+                        <li>
+                            <div class="offer">
+                                <div class="offer-image">
+                                    <img src="images/p1.jpg" class="img-responsive" alt=""/>
+                                </div>
+                                <div class="offer-text">
+                                    <h4>Olister Combo pack lorem</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+                                    <input type="button" value="Grab It">
+                                    <span></span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="offer">
+                                <div class="offer-image">
+                                    <img src="images/p2.jpg" class="img-responsive" alt=""/>
+                                </div>
+                                <div class="offer-text">
+                                    <h4>Chicken Jumbo pack lorem</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+                                    <input type="button" value="Grab It">
+                                    <span></span>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="offer">
+                                <div class="offer-image">
+                                    <img src="images/p1.jpg" class="img-responsive" alt=""/>
+                                </div>
+                                <div class="offer-text">
+                                    <h4>Crab Combo pack lorem</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+                                    <input type="button" value="Grab It">
+                                    <span></span>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="offer">
+                                <div class="offer-image">
+                                    <img src="images/p2.jpg" class="img-responsive" alt=""/>
+                                </div>
+                                <div class="offer-text">
+                                    <h4>Chicken Jumbo pack lorem</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </p>
+                                    <input type="button" value="Grab It">
+                                    <span></span>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(window).load(function () {
+
+                            $("#flexiselDemo3").flexisel({
+                                visibleItems: 3,
+                                animationSpeed: 1000,
+                                autoPlay: true,
+                                autoPlaySpeed: 3000,
+                                pauseOnHover: true,
+                                enableResponsiveBreakpoints: true,
+                                responsiveBreakpoints: {
+                                    portrait: {
+                                        changePoint: 480,
+                                        visibleItems: 1
+                                    },
+                                    landscape: {
+                                        changePoint: 640,
+                                        visibleItems: 2
+                                    },
+                                    tablet: {
+                                        changePoint: 768,
+                                        visibleItems: 3
+                                    }
+                                }
+                            });
+
+                        });
+                    </script>
+                    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <h1 style="text-align: center">Thank You</h1>
+            <div class="alert alert-success">
+                <a style="text-align: center; font-size: 25px; text-decoration: none">Your order has placed
+                    Successfully.</a>
+                <p style="text-align: center; font-size: 20px;"> Please wait for your
+                    Order.</p>
+            </div>
+            <!-- Star Rating -->
+            <div class="rate" style="text-align: center;">
+                <h3>Give a rate to the Restaurant: </h3><br>
+                <input onclick="submitRate(5)" type="radio" id="star5" name="rate" value="5"/>
+                <label for="star5" title="text">5 stars</label>
+                <input onclick="submitRate(4)" type="radio" id="star4" name="rate" value="4"/>
+                <label for="star4" title="text">4 stars</label>
+                <input onclick="submitRate(3)" type="radio" id="star3" name="rate" value="3"/>
+                <label for="star3" title="text">3 stars</label>
+                <input onclick="submitRate(2)" type="radio" id="star2" name="rate" value="2"/>
+                <label for="star2" title="text">2 stars</label>
+                <input onclick="submitRate(1)" type="radio" id="star1" name="rate" value="1"/>
+                <label for="star1" title="text">1 star</label>
+            </div><br>
+            <a onclick="placeAnother()" style="margin-left: 30%; margin-bottom: 5%" class="btn btn-primary">Place Another Order</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="logout-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 style="margin-top: 2%; margin-bottom: 2%; text-align: center;font-size: 18px ">Warning</h2>
+        </div>
+        <div class="modal-body">
+            <h2 style="text-align: center; margin-top: 2%; font-size: 20px">Do you want to logout?</h2>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-success" style="margin-top: 2%; margin-bottom: 2%" onclick="logout()">Yes</a>
+            <a class="btn btn-danger" style="margin-top: 2%; margin-bottom: 2%"
+               onclick="document.getElementById('logout-modal').style.display = 'none'">No</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- footer-section-starts -->
+<div class="footer">
+    <div class="container">
+        <p class="wow fadeInLeft" data-wow-delay="0.4s">&copy; 2019 All rights Reserved | by &nbsp;<a
+                href="http://w3layouts.com" target="target_blank">EasyFood.lk</a></p>
+    </div>
+</div>
+<script src="js/cookie.js"></script>
+<!-- footer-section-ends -->
+<script type="text/javascript">
+
+    function empytCart() {
+        ids = [];
+        totalPrice = 0;
+        count = 0;
+
+        $('#simpleCart_qty').text(count);
+        $('#simpleCart_ttl').text("LKR "+totalPrice);
+        eraseCookie('cart');
+        eraseCookie('count');
+        eraseCookie('totalCost');
+    }
+    var modal = document.getElementById('myModal');
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    function openModal() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    /* // When the user clicks anywhere outside of the modal, close it
+     window.onclick = function (event) {
+         if (event.target == modal) {
+             modal.style.display = "none";
+         } else if (event.target == locationModal) {
+             locationModal.style.display = "none";
+         }
+     }*/
+
+    $(document).ready(function () {
+        /*
+        var defaults = {
+              containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+         };
+        */
+        var cost = getCookie("totalCost");
+        var count = getCookie("count");
+
+        console.log("Cost"+cost)
+        if (cost === null) {
+            $('#simpleCart_qty').text(0);
+            $('#simpleCart_ttl').text("LKR 0.00");
+        }else {
+            $('#simpleCart_qty').text(count);
+            $('#simpleCart_ttl').text("LKR " + cost);
+        }
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+
+    $(document).ready(function () {
+
+        var restaurantId = getCookie("restaurantId");
+        console.log(restaurantId)
+
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/restaurants/get/' + restaurantId;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                var restaurant = JSON.parse(Http.responseText);
+                console.log(restaurant.restaurantName);
+                $("#restaurant").val(restaurant.restaurantName);
+
+                var lng = getCookie("lng");
+                var lat = getCookie("lat");
+
+                showLocation(lat, lng);
+            }
+        }
+    });
+
+    function showLocation(lat, lng) {
+        console.log(lat + " " + lng)
+        var geocoder = new google.maps.Geocoder();
+
+        var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+        geocoder.geocode({'location': latlng}, function (results, status) {
+            if (status === 'OK') {
+                console.log(results[0].formatted_address);
+                $('#location').val(results[0].formatted_address);
+            } else {
+                console.log(status)
+            }
+            console.log("format")
+        });
+    }
+
+    var restaurant = 0;
+    var orderId = 0;
+    function submitOrder() {
+        var cost = getCookie("totalCost");
+        var restaurantIds = $.parseJSON(getCookie("orderedRestaurants"));
+        var user = getCookie("user");
+        var cart =  $.parseJSON(getCookie('cart'));
+        var typeOforder = $('#typeofOrder').val();
+        var time = $('#time').val();
+        var useLocation = $('#location').val();
+        var payment_type = $('#payment-type').val();
+
+        var order_detail = [];
+        var res_detail = [];
+
+
+
+
+        cart.forEach(function (value, key) {
+            if ((key !== ',') && ("" + key !== 'function(){return this.split("").reverse().join("")}')) {
+                order_detail.push(
+                    {
+                        "count": value.count,
+                        "food": {
+                            "foodId": value.foodId
+                        }
+                    }
+                )
+            }
+        });
+
+        restaurantIds.forEach(function (value, key) {
+            if ((key !== ',') && ("" + key !== 'function(){return this.split("").reverse().join("")}')) {
+                res_detail.push(
+                    {
+                        "restaurantId": value
+                    }
+                )
+            }
+        });
+
+        var json = JSON.stringify({
+            "cost": cost,
+            "typeOfOrder": typeOforder,
+            "time": time,
+            "paymentType": payment_type,
+            "location": useLocation,
+            "userDto": {
+                "userId": user
+            },
+            "restaurantDto":res_detail,
+            "orderDetailDto": order_detail
+        });
+
+        if (payment_type === 'Cash') {
+            const Http = new XMLHttpRequest();
+            const url = 'http://localhost:8080/api/v1/user/add-order';
+
+            Http.onreadystatechange = (e) =>
+            {
+                if (Http.readyState === 4 && Http.status === 200) {
+                    var order = JSON.parse(Http.responseText);
+                    console.log(order)
+                    if (order !== null) {
+                        orderId = order.orderId;
+                        openModal();
+                    } else {
+                        console.log("Something went wrong")
+                    }
+                }
+            }
+
+            Http.open("POST", url);
+            Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            Http.send(json);
+        } else {
+            setCookie("order", json, 7);
+            location.href = 'payment.html';
+        }
+    }
+
+
+    function placeAnother() {
+        eraseCookie("totalCost");
+        eraseCookie("restaurantId");
+        eraseCookie("cart");
+        eraseCookie("isFromOrder");
+        eraseCookie("lat");
+        eraseCookie("lng");
+
+        location.href = 'index.html';
+    }
+
+    $(document).ready(function () {
+        var log = getCookie("logged");
+        if (log === 'hasLogged') {
+            $('#userlog').append("<li><a onclick='display_logout()' style='cursor: pointer;'>Logout</a></li>" +
+                "                    |\n" +
+                "                    <li><a href=\"aboutus.html\">About Us</a></li>");
+
+            $('#user-history').append("                    |" +
+                "                    <li><a href=\"user.html\">View History</a></li>\n" +
+                "                    |\n" +
+                "                    <li><a href=\"contact.html\">contact</a></li>")
+        } else {
+            $('#userlog').append("<li><a href=\"login.html\">Login</a></li>\n" +
+                "                    |\n" +
+                "                    <li><a href=\"register.html\">Register</a></li>" +
+                "                    |\n" +
+                "                    <li><a href=\"aboutus.html\">About Us</a></li>")
+            $('#user-history').append("                    |" +
+                "                    <li><a href=\"user.html\">View History</a></li>\n")
+        }
+
+
+        var cost = getCookie("totalCost");
+        var count = getCookie("count");
+
+
+        $('#simpleCart_qty').text(count);
+        $('#simpleCart_ttl').text("LKR "+cost);
+
+
+    });
+
+    function display_logout(){
+        document.getElementById('logout-modal').style.display = 'block';
+    }
+
+    function logout() {
+        eraseCookie('logged');
+        eraseCookie('user');
+        location.href = 'index.html'
+    }
+
+    function submitRate(value) {
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:8080/api/v1/restaurants/add-rating/'+value+'/'+orderId;
+
+        Http.onreadystatechange = (e) =>
+        {
+            if (Http.readyState === 4 && Http.status === 200) {
+                console.log("Rating added")
+            }
+        }
+
+        Http.open("GET", url);
+        Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        Http.send();
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6O_UCvF7h2_DPKBMId7LrMPKir9kzKIc&libraries=places"
+        async defer></script>
+
+<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>
